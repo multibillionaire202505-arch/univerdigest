@@ -15,7 +15,6 @@ function generatePlan(calories, country, budget, haveRaw) {
   let list = RECIPES.filter(r => country === "Any" || r.country === country);
   list = [...list].sort((a,b)=> b.protein - a.protein);
   list = [...list].sort((a,b)=> a.carbs - b.carbs);
-
   const have = haveRaw.split(",").map(s=>s.trim().toLowerCase()).filter(Boolean);
   if (have.length) {
     list = list
@@ -43,7 +42,6 @@ function generatePlan(calories, country, budget, haveRaw) {
     groceryMap.set(k, (groceryMap.get(k) || 0) + 1);
   })));
   const grocery = Array.from(groceryMap.entries()).map(([item,count]) => ({ item, count }));
-
   const estCostTotal = plan.reduce((sum,d) => sum + d.meals.reduce((s,m)=> s + m.recipe.costPerServe, 0), 0);
   return { plan, grocery, estCostTotal };
 }
@@ -130,3 +128,4 @@ export default function MealPlannerPage() {
     </div>
   );
 }
+
