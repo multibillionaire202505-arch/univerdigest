@@ -58,7 +58,9 @@ export default function MealPlannerPage() {
   return (
     <div className="space-y-6">
       <header className="space-y-1">
-        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Meal Planner</h1>
+        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight text-primary">
+          Meal Planner
+        </h1>
         <p className="text-slate-600">Choose calories, country, and ingredients you have. Get a 3-day plan + grocery list.</p>
       </header>
 
@@ -90,11 +92,18 @@ export default function MealPlannerPage() {
         </div>
 
         <div className="flex gap-2">
-          <button onClick={()=> setResult(generatePlan(Number(calories)||500, country, budget, have))}
-            className="rounded-2xl px-4 py-2 bg-black text-white text-sm">
+          <button
+            onClick={()=> setResult(generatePlan(Number(calories)||500, country, budget, have))}
+            className="rounded-2xl px-4 py-2 bg-primary text-white text-sm hover:bg-primary-dark"
+          >
             Generate 3-Day Plan
           </button>
-          <button onClick={()=> setResult(null)} className="rounded-2xl px-4 py-2 border text-sm">Reset</button>
+          <button
+            onClick={()=> setResult(null)}
+            className="rounded-2xl px-4 py-2 border text-sm hover:bg-accent-light"
+          >
+            Reset
+          </button>
         </div>
       </div>
 
